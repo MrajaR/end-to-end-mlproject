@@ -1,5 +1,6 @@
 end2end-ml-env/
 iseng.ipynb
+artifacts/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
