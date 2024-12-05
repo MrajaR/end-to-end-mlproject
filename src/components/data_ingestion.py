@@ -16,7 +16,6 @@ class DataIngestionConfig:
     test_data_path: str = Config.TEST_PATH
     raw_data_path: str = Config.RAW_PATH
 
-
 class DataIngestion:
     def __init__(self):
         self.ingestion_config = DataIngestionConfig()
@@ -46,3 +45,4 @@ class DataIngestion:
             )
         except Exception as e:
             raise CustomException(e, sys)
+
