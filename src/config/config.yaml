@@ -1,0 +1,41 @@
+models:
+  Decision Tree:
+    class: sklearn.tree.DecisionTreeRegressor
+    params:
+      criterion: ["squared_error", "friedman_mse", "absolute_error", "poisson"]
+
+  Random Forest Regressor:
+    class: sklearn.ensemble.RandomForestRegressor
+    params:
+      criterion: ["squared_error", "friedman_mse", "absolute_error", "poisson"]
+      n_estimators: [8, 16, 32, 64, 128, 256]
+
+  Gradient Boosting:
+    class: sklearn.ensemble.GradientBoostingRegressor
+    params:
+      learning_rate: [0.1, 0.01, 0.05, 0.001]
+      subsample: [0.6, 0.7, 0.75, 0.8, 0.85, 0.9]
+      n_estimators: [8, 16, 32, 64, 128, 256]
+
+  Linear Regression:
+    class: sklearn.linear_model.LinearRegression
+    params: {}
+
+  XGBRegressor:
+    class: xgboost.XGBRegressor
+    params:
+      learning_rate: [0.1, 0.01, 0.05, 0.001]
+      n_estimators: [8, 16, 32, 64, 128, 256]
+
+  CatBoost Regressor:
+    class: catboost.CatBoostRegressor
+    params:
+      depth: [6, 8, 10]
+      learning_rate: [0.01, 0.05, 0.1]
+      iterations: [30, 50, 100]
+
+  AdaBoost Regressor:
+    class: sklearn.ensemble.AdaBoostRegressor
+    params:
+      learning_rate: [0.1, 0.01, 0.5, 0.001]
+      n_estimators: [8, 16, 32, 64, 128, 256]

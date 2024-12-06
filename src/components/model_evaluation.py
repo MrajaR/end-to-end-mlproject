@@ -5,6 +5,7 @@ import sys
 
 from dataclasses import dataclass
 
+from src.utils import load_object
 from src.config import Config
 from src.logger import logging
 from src.exception import CustomException
@@ -21,7 +22,7 @@ class ModelEvaluation:
     def evaluate_model(self, x_test, y_test):
         logging.info("Entered the evaluate_model method of Model Evaluation class")
         try:
-            model = pickle.load(open(self.config.model_path, "rb"))
+            model = load_object(self.config.model_path)
             y_test_pred = model.predict(x_test)
 
             mae = mean_absolute_error(y_test, y_test_pred)

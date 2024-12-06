@@ -1,0 +1,18 @@
+model,best_params,train_score_cv,test_score
+DecisionTreeRegressor(criterion='poisson'),{'criterion': 'poisson'},0.7075753517990391,0.7526695334562896
+"RandomForestRegressor(criterion='absolute_error', n_estimators=128)","{'criterion': 'absolute_error', 'n_estimators': 128}",0.8336117205325756,0.8508785281651459
+"GradientBoostingRegressor(n_estimators=64, subsample=0.75)","{'learning_rate': 0.1, 'n_estimators': 64, 'subsample': 0.75}",0.8502512053895979,0.8731156909887048
+LinearRegression(),{},0.8661607490418023,0.8804332983749565
+"XGBRegressor(base_score=None, booster=None, callbacks=None,
+             colsample_bylevel=None, colsample_bynode=None,
+             colsample_bytree=None, device=None, early_stopping_rounds=None,
+             enable_categorical=False, eval_metric=None, feature_types=None,
+             gamma=None, grow_policy=None, importance_type=None,
+             interaction_constraints=None, learning_rate=0.05, max_bin=None,
+             max_cat_threshold=None, max_cat_to_onehot=None,
+             max_delta_step=None, max_depth=None, max_leaves=None,
+             min_child_weight=None, missing=nan, monotone_constraints=None,
+             multi_strategy=None, n_estimators=64, n_jobs=None,
+             num_parallel_tree=None, random_state=None, ...)","{'learning_rate': 0.05, 'n_estimators': 64}",0.8249268794168457,0.8488786573230696
+<catboost.core.CatBoostRegressor object at 0x000002B59D47E850>,"{'depth': 6, 'iterations': 100, 'learning_rate': 0.1}",0.847750849204901,0.8566301224032382
+"AdaBoostRegressor(learning_rate=0.5, n_estimators=256)","{'learning_rate': 0.5, 'n_estimators': 256}",0.8209082868023461,0.8514904621423274
