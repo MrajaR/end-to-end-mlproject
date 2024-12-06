@@ -2,7 +2,6 @@ from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 import numpy as np
 import pandas as pd
-import time  # Simulating training delay
 
 from src.pipeline import CustomData, InferencePipeline, TrainingPipeline
 
@@ -21,27 +20,26 @@ def home():
 def predict():
     
     if request.method == "GET":
-        return render_template("home.html")
+        return render_template("predict.html")
     else:
         data = CustomData(
-            request.form.get("gender"),
-            request.form.get("ethnicity"),
-            request.form.get("parental_level_of_education"),
-            request.form.get("lunch"),
-            request.form.get("test_preparation_course"),
-            request.form.get("reading_score"),
-            request.form.get("writing_score")
+            str(request.form.get("gender")).lower(),
+            str(request.form.get("ethnicity")),
+            str(request.form.get("parental_level_of_education")).lower(),
+            str(request.form.get("lunch")).lower(),
+            str(request.form.get("test_preparation_course")).lower(),
+            float(request.form.get("reading_score")),
+            float(request.form.get("writing_score"))
         ).get_data_as_dataframe()
 
         predictions = inference_pipeline.predict(data)
 
-        return render_template("home.html", results=predictions[0])
+        return render_template("predict.html", results=predictions[0])
     
 @app.route("/train-model-api", methods=["GET", "POST"])
 def train_model():
     try:
         training_pipeline.run_pipeline()
-        time.sleep(2)
         return jsonify({"status": "success"})
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)})
